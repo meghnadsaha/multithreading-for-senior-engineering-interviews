@@ -1,5 +1,7 @@
 package blocking.queue;
 
+import blocking.queue.mutuex.BlockingQueueWithMutex;
+
 public class Demonstration {
 
     public static void main( String args[] ) throws InterruptedException {
@@ -7,44 +9,33 @@ public class Demonstration {
 
         Thread producer1 = new Thread(new Runnable() {
             public void run() {
-                try {
-                    int i = 1;
-                    while (true) {
-                        q.enqueue(i);
-                        System.out.println("Producer thread 1 enqueued " + i);
-                        i++;
-                    }
-                } catch (InterruptedException ie) {
+                int i = 1;
+                while (true) {
+                    q.enqueue(i);
+                    System.out.println("Producer thread 1 enqueued " + i);
+                    i++;
                 }
             }
         });
 
         Thread producer2 = new Thread(new Runnable() {
             public void run() {
-                try {
-                    int i = 5000;
-                    while (true) {
-                        q.enqueue(i);
-                        System.out.println("Producer thread 2 enqueued " + i);
-                        i++;
-                    }
-                } catch (InterruptedException ie) {
-
+                int i = 5000;
+                while (true) {
+                    q.enqueue(i);
+                    System.out.println("Producer thread 2 enqueued " + i);
+                    i++;
                 }
             }
         });
 
         Thread producer3 = new Thread(new Runnable() {
             public void run() {
-                try {
-                    int i = 100000;
-                    while (true) {
-                        q.enqueue(i);
-                        System.out.println("Producer thread 3 enqueued " + i);
-                        i++;
-                    }
-                } catch (InterruptedException ie) {
-
+                int i = 100000;
+                while (true) {
+                    q.enqueue(i);
+                    System.out.println("Producer thread 3 enqueued " + i);
+                    i++;
                 }
             }
         });
