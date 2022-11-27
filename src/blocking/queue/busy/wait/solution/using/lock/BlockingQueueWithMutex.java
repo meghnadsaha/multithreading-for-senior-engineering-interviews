@@ -1,4 +1,4 @@
-package blocking.queue.mutuex;
+package blocking.queue.busy.wait.solution.using.lock;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
