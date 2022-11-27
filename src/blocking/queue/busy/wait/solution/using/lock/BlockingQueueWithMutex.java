@@ -23,7 +23,10 @@ public class BlockingQueueWithMutex<T> {
 
         lock.lock();
         while (size == 0) {
+           //Release the mutex to give other threads
             lock.unlock();
+            //Reacquire the mutex before checking the
+            //condition
             lock.lock();
         }
 
