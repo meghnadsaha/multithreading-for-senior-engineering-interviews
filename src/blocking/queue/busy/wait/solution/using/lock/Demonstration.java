@@ -1,6 +1,6 @@
-package blocking.queue;
+package blocking.queue.busy.wait.solution.using.lock;
 
-import blocking.queue.mutuex.BlockingQueueWithMutex;
+import blocking.queue.busy.wait.solution.using.lock.BlockingQueueWithMutex;
 
 public class Demonstration {
 

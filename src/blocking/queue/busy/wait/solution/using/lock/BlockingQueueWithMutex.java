@@ -1,5 +1,4 @@
-package blocking.queue.mutuex;
-
+package blocking.queue.busy.wait.solution.using.lock;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -18,10 +17,9 @@ public class BlockingQueueWithMutex<T> {
         this.capacity = capacity;
     }
 
-    //dequeue(): This operation removes and returns an element that is at the front end of the queue.
-    public T dequeue() throws InterruptedException {
+    public T dequeue() {
 
-        T item;
+        T item = null;
 
         lock.lock();
         while (size == 0) {
@@ -42,9 +40,6 @@ public class BlockingQueueWithMutex<T> {
         return item;
     }
 
-    /**
-     * enqueue(): Inserts an element at the end of the queue i.e. at the rear end.
-     */
     public void enqueue(T item) {
 
         lock.lock();
